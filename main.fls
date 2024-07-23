@@ -1724,7 +1724,16 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT ./figures/logo.png
 INPUT ./figures/logo.png
 INPUT figures/logo.png
+INPUT ./figures/logo_HD.png
+INPUT ./figures/logo_HD.png
+INPUT figures/logo_HD.png
 OUTPUT main.xdv
+INPUT ./figures/line.png
+INPUT ./figures/line.png
+INPUT figures/line.png
+INPUT ./figures/logo.png
+INPUT ./figures/logo.png
+INPUT figures/logo.png
 OUTPUT main.nav
 OUTPUT main.toc
 OUTPUT main.snm

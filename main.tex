@@ -30,7 +30,7 @@
 \usepackage{dcolumn}
 \usepackage{float}
 
-%\usepackage[
+%\usepackage[ {{{
 %    backend=biber,	% use biber backend (bibtex replacement) or bibtex
 %    style=numeric,	% Styleoptions: authoryear, alphabetic, numeric, ...
 %    sorting=none,	% Sorting of the entries
@@ -53,29 +53,36 @@
 %	backrefpages = {{cited on pages}},%
 %    }
 % Author names in publication list are consistent 
-%\DeclareNameAlias{author}{given-family}
+%\DeclareNameAlias{author}{given-family} }}}
 
-%%% Some useful commands
+% Some useful commands %%%
 % pdf-friendly newline in links
 \newcommand{\pdfnewline}{\texorpdfstring{\newline}{ }} 
 % Fill the vertical space in a slide (to put text at the bottom)
 \newcommand{\framefill}{\vskip0pt plus 1filll}
 
 \renewcommand{\proofname}{\sffamily{Proof}}
+% Add custom meeting title
+\newcommand{\meetingtitle}[1]{\begin{textblock*}{0.9\paperwidth}
+(0.05\paperwidth,0.2\paperheight){\begin{center}#1\end{center}}\end{textblock*}}
+
+\newcommand{\smalltitle}[1]{\begin{textblock*}{0.9\paperwidth}
+(0.05\paperwidth,0.55\paperheight){\begin{center}\usebeamerfont{title}\LARGE
+\color{ARed}{#1}\end{center}}\end{textblock*}}
 
 % }}}
 
-\title[ALICE Theme]
-{A simplistic, beautiful ALICE beamer class theme}
+\title[ALICE Theme]{Simplistic ALICE beamer class theme}
 \date[\today]{\small\today}
-\author{Theme by \pdfnewline Maurice Donner}
-\institute{Ruprecht-Karls-Universität Heidelberg}
+\author{Maurice Donner}
 
 \begin{document}
 
 \begin{frame} % Titlepage {{{
 \thispagestyle{empty}
 \titlepage
+\meetingtitle{Weekly Hardware meeting}
+\smalltitle{- Full template -}
 \end{frame}
 
 \addtobeamertemplate{navigation symbols}{}{%
@@ -84,6 +91,11 @@
     \hspace{1cm}%
     \textcolor{ABlue}{\insertframenumber/\inserttotalframenumber}
 } % }}}
+
+
+\begin{frame}{Test}
+    test
+\end{frame}
 
 \end{document}
 

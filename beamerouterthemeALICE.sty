@@ -8,7 +8,8 @@
 \useasboundingbox (0,-0.05) rectangle(\the\paperwidth,0.95);
 
 % Colored line
-\fill[color=ALICE] (-1,0) rectangle(0.8*\the\paperwidth,1pt);
+\node[inner sep=0pt] (line) at (.5\paperwidth,0.5\paperheight)
+{\includegraphics[width=\the\paperwidth]{figures/line.png}};
  
  % Logo in the top right
 \node[inner sep=0pt] (logo) at (13.87,0.05)

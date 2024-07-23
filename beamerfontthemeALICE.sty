@@ -1,10 +1,12 @@
 \usepackage{fontspec} 
-\setsansfont{Linux Biolinum O}
+\setsansfont{Avenir Next Cyr}
 \setmonofont{Latin Modern Mono Light}
 
 % Font sizes
 % Have added \sffamily to all title fonts below /J
-\setbeamerfont{title}{size=\Huge}%} % Semibold title 
+%\setbeamerfont{title}{size=\Huge}%} % Semibold title 
+\newfontfamily\avantgarde{Linux Biolinum O}[Ligatures=Common]
+\setbeamerfont{title}{family=\avantgarde,size=\Huge}
 \setbeamerfont{frametitle}{size=\Large\sffamily,series=\bfseries}
 \setbeamerfont{framesubtitle}{size=\normalsize}
 \setbeamerfont{title in head/foot}{size=\footnotesize\sffamily}
