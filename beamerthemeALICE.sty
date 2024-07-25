@@ -1,16 +1,22 @@
+% !TEX root = main.tex
+% !TEX program = xelatex
 \mode<presentation>
 
 % comment/uncomment this line to enable/disable debug mode
-%\newcommand*{\DEBUG}{}
+% \newcommand*{\DEBUG}{}
+
+% Checking if background has to be loaded or not
+\newcommand\framecardtrue{0}
 
 % Requirement
 \RequirePackage{xcolor}	% colors
 \RequirePackage{tikz}	% drawing 
 \RequirePackage{soul} 	% text highlighting
 
-% in debug mode, show the boxes around the text
+% in debug mode, show the boxes around the text and tikz nodes
 \ifdefined\DEBUG
 \usepackage[absolute,overlay,showboxes]{textpos}
+\tikzset{every node/.style={draw=gray}}
 \else
 \usepackage[absolute,overlay]{textpos}
 \fi
@@ -34,37 +40,43 @@
 % Bibliography styling
 \setbeamertemplate{bibliography item}[text]
 
-% See the provided main.tex template for a tutorial
-% on how to use \framecard and \framepic.
-
-%%%%% Frame with huge centered text
-\newcommand{\framecard}[2][ABlue]{
-    {\setbeamercolor{background canvas}{bg=#1}%
-      \begin{frame}[plain,c]%
-        \begin{center}%
-          \vspace{1cm}
-          {\color{white}\Huge\sffamily\textbf{%
-            {#2}%
-          }}%
-        \end{center}%
-      \end{frame}%
-  }
-}
-
-%%%%% Frame with background image~
-\newcommand{\framepic}[3][1]{
-  {
+% Frame with huge centered text {{{
+\newcommand{\framecard}[3]{
+    \renewcommand\framecardtrue{1}
     \usebackgroundtemplate{%
-    \tikz[overlay,remember picture] \node[opacity=#1, at=(current page.center)] {
-      \includegraphics[height=\paperheight]{#2}};
+    \tikz \path (current page.north west) node[below right,fill=#2,minimum 
+    width=\paperwidth,minimum height=\paperheight] (box){};
     }
-    \begin{frame}[plain]
-      \huge{#3}
-    \end{frame}
-  }
-}
+    \begin{frame}[c]%
+    \begin{center}%
+	\vspace{1cm}
+	{\usebeamerfont{frametitle}\color{#1}\Huge\textbf{#3}}
+    \end{center}%
+    \end{frame}%
+    \renewcommand\framecardtrue{0}
+} % }}}
+
+% Frame with background image {{{
+\newcommand{\framepic}[3][1]{
+    \renewcommand\framecardtrue{1}
+    {
+	\usebackgroundtemplate{%
+	\tikz[overlay,remember picture]
+	\node[opacity=#1, at=(current page.center)] {
+	\includegraphics[height=\paperheight]{#2}};
+	}
+	\begin{frame}[c]
+	    \begin{center}%
+		\vspace{1cm}
+		{\usebeamerfont{frametitle}\Huge\textbf{#3}}
+	    \end{center}%
+	\end{frame}
+	}
+    \renewcommand\framecardtrue{0}
+} % }}}
 
 %%%%% Marker for text highlighting
+\newcommand{\marker}[2][AOrange]{{\SoulColor\sethlcolor{#1}\hl{#2}}}
 
 % beamer/soul compatibility fix
 \makeatletter
@@ -72,7 +84,5 @@
   \let\set@color\beamerorig@set@color
   \let\reset@color\beamerorig@reset@color}
 \makeatother
-
-\newcommand{\marker}[2][AOrange]{{\SoulColor\sethlcolor{#1}\hl{#2}}}
 
 \mode<all>

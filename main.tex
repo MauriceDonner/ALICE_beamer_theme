@@ -19,6 +19,7 @@
     \tikzstyle{block} = [rectangle, draw, fill=ABlue,
     text width=10em, text centered, rounded corners, minimum height=4em]
     \usetikzlibrary{shapes}
+    \usetikzlibrary{backgrounds} % So ALICE logo is in front of line
     \newcommand\ngram[3][]{%
 \path[#1] (0  :#3) -- ( 36:#2)
        -- (72 :#3) -- (108:#2)
@@ -27,6 +28,13 @@
        -- (288:#3) -- (324:#2)--cycle;}
 \usepackage{subcaption}
 \usepackage{booktabs,tabularx,colortbl}
+\usepackage{enumitem}
+\newlist{enum}{enumerate}{3}  
+\setlist[enum, 1]{label*=\color{ARed}\arabic*., listparindent=21pt, font=\footnotesize, before*=\normalsize } 
+\setlist[enum, 2]{label*=\color{ARed}\arabic*., listparindent=21pt, font=\tiny, before*=\footnotesize }
+\setlist[itemize,1]{label=\color{ARed}\raisebox{0.25ex}{\tiny\textbullet}, before*=\usebeamerfont{light}\normalsize}
+\setlist[itemize,2]{label=\color{ARed}\raisebox{0.25ex}{\tiny\textbullet}, before*=\usebeamerfont{light}\footnotesize}
+
 \usepackage{dcolumn}
 \usepackage{float}
 
@@ -62,12 +70,12 @@
 \newcommand{\framefill}{\vskip0pt plus 1filll}
 
 \renewcommand{\proofname}{\sffamily{Proof}}
-% Add custom meeting title
-\newcommand{\meetingtitle}[1]{\begin{textblock*}{0.9\paperwidth}
-(0.05\paperwidth,0.2\paperheight){\begin{center}#1\end{center}}\end{textblock*}}
 
+% Add custom meeting title and small title
+\newcommand{\meetingtitle}[1]{\begin{textblock*}{0.9\paperwidth}
+(0.05\paperwidth,0.23\paperheight){\begin{center}#1\end{center}}\end{textblock*}}
 \newcommand{\smalltitle}[1]{\begin{textblock*}{0.9\paperwidth}
-(0.05\paperwidth,0.55\paperheight){\begin{center}\usebeamerfont{title}\LARGE
+(0.05\paperwidth,0.65\paperheight){\begin{center}\usebeamerfont{title}\LARGE
 \color{ARed}{#1}\end{center}}\end{textblock*}}
 
 % }}}
@@ -78,7 +86,7 @@
 
 \begin{document}
 
-\begin{frame} % Titlepage {{{
+\begin{frame}[fragile] % Titlepage {{{
 \thispagestyle{empty}
 \titlepage
 \meetingtitle{Weekly Hardware meeting}
@@ -92,10 +100,38 @@
     \textcolor{ABlue}{\insertframenumber/\inserttotalframenumber}
 } % }}}
 
-
-\begin{frame}{Test}
-    test
+\begin{frame}{Frame Title - Large red letters}{Frame Subtitle - Less large and less red letters}
+    This is how normal text looks like.\\
+    This is how \textbf{bold} and \textit{italic} text looks like.
+    \begin{enumerate}
+	\item This is item one of an enumeration list.
+	\item And here we have item two of an enumeration list
+	    \begin{enumerate}
+	    \item Here we have sub-items in a list
+	    \item Take another one will ya
+	    \end{enumerate}
+	\item And a third and final item of our enumeration.
+    \end{enumerate}
+    \begin{itemize}
+	\item test
+	\item test 2
+	\begin{itemize}
+	    \item undertest
+	    \item undertest 2
+	\end{itemize}
+	\item test 3
+    \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Frame Title without subtitle}
+    Text that can be \marker{highlighted} if necessary.
+\end{frame}
+
+\framecard{white}{ABlue}{Empty card with large text}
+
+% Frame with beackground image
+% \framepic[0.5]{/home/maurice/Pictures/Wallpapers/FIAB.jpg}{Test}
 
 \end{document}
 

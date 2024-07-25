@@ -1,3 +1,5 @@
+% !TEX root = main.tex
+% !TEX program = xelatex
 \mode<presentation>
 
 \setbeamertemplate{sections/subsections in toc}[circle]
@@ -7,27 +9,47 @@
 % Titlepage Background {{{
 \setbeamertemplate{background}{
 \begin{tikzpicture}
-  
-\ifnum\thepage>1\relax%
-    % background for pages > 1 
-    %\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-\else 
-    % background for the title page
     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    
+    % Background for the title page
+    \ifnum\thepage=1\relax
+	% Logo HD
+	\node[inner sep=0pt,anchor=north west] (logo) at (4pt,\paperheight-4)
+	{\includegraphics[height=1.5cm]{figures/logo_HD.jpg}};
+	% Logo ALICE
+	\node[inner sep=0pt,anchor=north east] (logo) at
+	(\paperwidth-4,\paperheight-4)
+	{\includegraphics[height=1.5cm]{figures/logo.png}};
+    
+    \else
 
-    % Logo ALICE
-    \node[inner sep=0pt,anchor=north east] (logo) at (\paperwidth-4,\paperheight-4)
-    {\includegraphics[height=1.5cm]{figures/logo.png}};
-    % Logo HD
-    \node[inner sep=0pt,anchor=north west] (logo) at (4pt,\paperheight-4)
-    {\includegraphics[height=1.5cm]{figures/logo_HD.png}};
+    % Background for framecard
+    \ifnum\framecardtrue=1
+    % \tikz \path (current page.north west) node[below right,fill=ABlue,minimum 
+    % width=\paperwidth,minimum height=\paperheight] (box){};
 
-\fi
-% in debug mode, show the grid
-\ifdefined\DEBUG
-	\draw[help lines,xstep=1,ystep=1,gray] (current page.south west)
-	grid (current page.north east);
-\fi
+    % Background for all other pages
+    \else
+	% Logo ALICE (slightly smaller)
+	\node[inner sep=0pt,anchor=north east] (logo) at
+	(\paperwidth-4,\paperheight-4)
+	{\includegraphics[height=1.2cm]{figures/logo.png}};
+	% Colored line
+	\begin{scope}[on background layer]
+	\node (line) at (.5\paperwidth, 7.5)
+	{\includegraphics[width=\the\paperwidth]{figures/line.png}};
+	\end{scope}
+    \fi \fi
+
+    % in debug mode, show the grid
+    \ifdefined\DEBUG
+	    \draw[help lines,xstep=0.5,ystep=0.5,gray] (current page.south west)
+	    grid (current page.north east);
+	    \foreach \x in {0, ..., 15} \foreach \y in {0, ..., 8} {
+	    \node[draw opacity=0,anchor=south west,scale=0.3] at (\x,\y) {\color{gray}[\x,\y]};
+	    \filldraw (\x,\y) [gray] circle [radius=0.4pt];
+	}
+    \fi
 \end{tikzpicture}
 }
 % }}}
@@ -36,35 +58,24 @@
 
 \defbeamertemplate*{title page}{ims}[1][]{
 % Title
-\begin{textblock*}{0.9\paperwidth}(0.05\paperwidth,0.4\paperheight)
-{
-    \begin{center}
+\begin{tikzpicture}[align=center, remember picture, overlay]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \node[\ifdefined\DEBUG draw\else \fi,text width=.9\paperwidth]
+    (Title) at (current page.center){
 	\usebeamercolor[fg]{title}
 	\usebeamerfont{title}
 	\inserttitle
-    \end{center}
-}
-\end{textblock*}
-% Author
-\begin{textblock*}{0.9\paperwidth}(0.05\paperwidth,0.7\paperheight)
-{
-    \begin{center}
-	\usebeamercolor[fg]{author}
-	\usebeamerfont{author}
-	\sffamily\selectfont
-	\insertauthor
-    \end{center}
-}
-\end{textblock*}
-% Date
+    };
+\end{tikzpicture}
+% Author and Date
 \begin{textblock*}{0.9\paperwidth}(0.05\paperwidth,0.8\paperheight)
 {
-    \begin{center}
-	\usebeamercolor[fg]{author}
-	\usebeamerfont{author}
-	\sffamily\selectfont
-	\insertdate
-    \end{center}
+    \usebeamercolor[fg]{author}
+    \usebeamerfont{author}
+    \sffamily\selectfont
+    \insertauthor 
+    \hfill
+    \insertdate
 }
 \end{textblock*}
 }

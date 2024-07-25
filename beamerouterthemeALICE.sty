@@ -1,36 +1,26 @@
+% !TEX root = main.tex
+% !TEX program = xelatex
 \mode<presentation>
 
 % Frame title
 \defbeamertemplate*{frametitle}{ALICE}[1][]
 {
 
-\begin{tikzpicture}
-\useasboundingbox (0,-0.05) rectangle(\the\paperwidth,0.95);
-
-% Colored line
-\node[inner sep=0pt] (line) at (.5\paperwidth,0.5\paperheight)
-{\includegraphics[width=\the\paperwidth]{figures/line.png}};
- 
- % Logo in the top right
-\node[inner sep=0pt] (logo) at (13.87,0.05)
-{\includegraphics[width=1cm]{figures/logo.png}};
-\end{tikzpicture}
-
 % If we don't have a subtitle, put the title
 % at the center of the header
 \ifx\insertframesubtitle\@empty
 
-  \begin{textblock*}{\paperwidth}(0.2cm,0.3cm)
+  \begin{textblock*}{\paperwidth}(0.6cm,0.6cm)
   {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle}
   \end{textblock*}
 
 \else
 % If we have both title and subtitle, stack them
-  \begin{textblock*}{\paperwidth}(0.2cm,0.1cm)
+  \begin{textblock*}{\paperwidth}(0.6cm,0.4cm)
   {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle}
   \end{textblock*}
 
-  \begin{textblock*}{\paperwidth}(0.2cm,0.6cm)
+  \begin{textblock*}{\paperwidth}(0.8cm,0.95cm)
   {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle}
   \end{textblock*}
 

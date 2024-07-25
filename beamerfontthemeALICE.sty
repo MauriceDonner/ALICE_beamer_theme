@@ -1,3 +1,5 @@
+% !TEX root = main.tex
+% !TEX program = xelatex
 \usepackage{fontspec} 
 \setsansfont{Avenir Next Cyr}
 \setmonofont{Latin Modern Mono Light}
@@ -5,14 +7,19 @@
 % Font sizes
 % Have added \sffamily to all title fonts below /J
 %\setbeamerfont{title}{size=\Huge}%} % Semibold title 
-\newfontfamily\avantgarde{Linux Biolinum O}[Ligatures=Common]
-\setbeamerfont{title}{family=\avantgarde,size=\Huge}
-\setbeamerfont{frametitle}{size=\Large\sffamily,series=\bfseries}
+\newfontfamily\biolinum{Linux Biolinum O}[Ligatures=Common]
+\newfontfamily\light{AvenirNextCyr-Light}[Ligatures=Common]
+\setbeamerfont{title}{family=\biolinum,size=\Huge}
+\setbeamerfont{frametitle}{family=\biolinum,size=\LARGE\sffamily,series=\bfseries}
 \setbeamerfont{framesubtitle}{size=\normalsize}
 \setbeamerfont{title in head/foot}{size=\footnotesize\sffamily}
 \setbeamerfont{author in head/foot}{size=\footnotesize\sffamily}
 \setbeamerfont{block title}{size=\normalsize\sffamily,series=\bfseries}
+\setbeamerfont{light}{family=\light}
 
 \setbeamerfont*{bibliography entry author}{series=\bfseries}
 \setbeamerfont*{bibliography entry title}{series=\bfseries}
 \setbeamerfont*{description item}{series=\bfseries}
+
+\setbeamerfont*{itemize/enumerate body}{size=\fontsize{11}{11}}
+\setbeamerfont*{itemize/enumerate subbody}{size=\fontsize{8}{8},parent=itemize/enumerate body}
