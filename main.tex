@@ -1,5 +1,5 @@
 % Compile in XeLaTeX
-\documentclass[usenames,dvipsnames,11pt,aspectratio=169]{beamer} 
+\documentclass[usenames,dvipsnames,11pt,aspectratio=169,t]{beamer} 
 
 % Preamble {{{ 
 % Note that [usenames,dvipsnames] is MANDATORY due to compatibility
@@ -37,6 +37,15 @@
 
 \usepackage{dcolumn}
 \usepackage{float}
+\usepackage{lipsum}
+\usepackage{listings}
+\lstset{% general command to set parameter(s)
+    basicstyle=\color{ARed}\footnotesize\ttfamily,
+    keywordstyle=\color{black}\bfseries,
+    identifierstyle=,
+    commentstyle=\color{gray},
+    stringstyle=\ttfamily,
+    showstringspaces=false}
 
 %\usepackage[ {{{
 %    backend=biber,	% use biber backend (bibtex replacement) or bibtex
@@ -124,11 +133,19 @@
 \end{frame}
 
 
-\begin{frame}{Frame Title without subtitle}
-    Text that can be \marker{highlighted} if necessary.
+\begin{frame}[fragile]{Frame Title without subtitle}
+    Text that can be \highlight{highlighted} or \marker{marked} \\[1cm]
+    Code should be formatted with \lstinline!\lstinline! \\[1cm]
+    This can also be used to highlight \lstinline!KEYWORDS! or names like
+    the \lstinline{ALICE} experiment.
 \end{frame}
 
 \framecard{white}{ABlue}{Empty card with large text}
+
+\begin{frame}{Text block}
+    \tiny
+    \lipsum[1-5]
+\end{frame}
 
 % Frame with beackground image
 % \framepic[0.5]{/home/maurice/Pictures/Wallpapers/FIAB.jpg}{Test}

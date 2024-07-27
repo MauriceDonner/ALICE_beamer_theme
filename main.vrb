@@ -1,4 +1,5 @@
-\thispagestyle{empty}
-\titlepage
-\meetingtitle{Weekly Hardware meeting}
-\smalltitle{- Full template -}
+\frametitle{Frame Title without subtitle}
+Text that can be \highlight{highlighted} or \marker{marked} \\[1cm]
+    Code should be formatted with \lstinline!\lstinline! \\[1cm]
+    This can also be used to highlight \lstinline!KEYWORDS! or names like
+    the \lstinline{ALICE} experiment.

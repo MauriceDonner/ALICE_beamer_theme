@@ -23,8 +23,8 @@
 
 % Settings
 \usefonttheme[onlymath]{serif} %För seriferad table of contents
-\useinnertheme{ALICE}
 \useoutertheme{ALICE}
+\useinnertheme{ALICE}
 \usecolortheme{ALICE}
 \usefonttheme{ALICE}
 
@@ -49,10 +49,11 @@
     }
     \begin{frame}[c]%
     \begin{center}%
-	\vspace{1cm}
+	\vspace{-1.3cm}
 	{\usebeamerfont{frametitle}\color{#1}\Huge\textbf{#3}}
     \end{center}%
     \end{frame}%
+    \usebackgroundtemplate{}
     \renewcommand\framecardtrue{0}
 } % }}}
 
@@ -77,6 +78,7 @@
 
 %%%%% Marker for text highlighting
 \newcommand{\marker}[2][AOrange]{{\SoulColor\sethlcolor{#1}\hl{#2}}}
+\newcommand{\highlight}[2][ARed]{\color{#1}\textbf{#2} \color{black}}
 
 % beamer/soul compatibility fix
 \makeatletter
