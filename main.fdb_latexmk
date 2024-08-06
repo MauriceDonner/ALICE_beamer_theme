@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1722120466 "main.xdv" "main.pdf" "main" 1722120468
-  "main.xdv" 1722120466 57680 35de989169c2614c55f1ffe42bbfb492 "xelatex"
+["xdvipdfmx"] 1722941978 "main.xdv" "main.pdf" "main" 1722941980
+  "main.xdv" 1722941978 57188 054f3a7c6a4fa7f3adc23e715100902a "xelatex"
   (generated)
   "main.pdf"
-["xelatex"] 1722120464 "main.tex" "main.xdv" "main" 1722120468
+["xelatex"] 1722941976 "main.tex" "main.xdv" "main" 1722941980
   "/etc/texmf/web2c/texmf.cnf" 1635312687 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -267,24 +267,24 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1704886685 4942170 6dd9ed7757d85e08e520b8745c9ba176 ""
   "beamercolorthemeALICE.sty" 1721877415 1536 6eec1d72a8f5498eeb6f8a5da4fcb5ad ""
-  "beamerfontthemeALICE.sty" 1722120219 1212 f7e2fa2e7843487f824a786fd0c77fa9 ""
+  "beamerfontthemeALICE.sty" 1722121078 1167 059ce068950cd7697a28e68074359a11 ""
   "beamerinnerthemeALICE.sty" 1722118354 3307 c2822b5a0b00aa7feceb5da205b2c301 ""
   "beamerouterthemeALICE.sty" 1721878728 760 8bff5bc10d14df01673bbad823e80bc8 ""
   "beamerthemeALICE.sty" 1722119222 2370 c08a111280b5842dc896cc863ffe1489 ""
   "figures/line.png" 1721760469 477673 9967d22a3caa565b0a3067fe7bb093ce ""
   "figures/logo.png" 1638465967 118470 594d928a7d4349b47d227a65adfa6f10 ""
   "figures/logo_HD.jpg" 1721878491 93225 cc33b2fa08984a36200228d47627fb84 ""
-  "main.aux" 1722120466 1883 8fa941d80e0e6560f9449bda2efd9208 "xelatex"
-  "main.nav" 1722120466 659 3cb0dd10b35feddfc4c8158c93cb8db0 "xelatex"
-  "main.out" 1722120466 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "main.tex" 1722120463 5204 1fd465f4a49eac1b36f5fbad55b95db9 ""
-  "main.vrb" 1722120466 287 5baa5f87e0a749e7e30229b2205c42e8 "xelatex"
+  "main.aux" 1722941978 1883 8fa941d80e0e6560f9449bda2efd9208 "xelatex"
+  "main.nav" 1722941978 659 3cb0dd10b35feddfc4c8158c93cb8db0 "xelatex"
+  "main.out" 1722941978 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "main.tex" 1722941975 5162 bdd6f072dd33d99d708073e973ed0225 ""
+  "main.vrb" 1722941978 287 5baa5f87e0a749e7e30229b2205c42e8 "xelatex"
   (generated)
   "main.toc"
+  "main.vrb"
+  "main.log"
+  "main.aux"
+  "main.snm"
+  "main.out"
   "main.xdv"
   "main.nav"
-  "main.log"
-  "main.snm"
-  "main.vrb"
-  "main.aux"
-  "main.out"
